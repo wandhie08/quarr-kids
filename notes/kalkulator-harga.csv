@@ -1,0 +1,38 @@
+Kalkulator Harga Jual - Quarr Kids,,
+"Cara pakai: buka di Excel / Google Sheets. Ubah sel di kolom B yang berlabel [INPUT]. Sisanya terhitung otomatis.",,
+,,
+=== INPUT (ubah angka di sini) ===,,
+Keterangan,Nilai,Satuan
+HPP dari konveksi (per set) [INPUT],20000,Rupiah
+Packaging per pcs (plastik+hangtag+thankyou card) [INPUT],1500,Rupiah
+Biaya admin marketplace (%) [INPUT],8,persen
+Alokasi ongkir ditanggung penjual per pcs [INPUT],0,Rupiah
+Alokasi biaya iklan per pcs [INPUT],2000,Rupiah
+Target margin keuntungan (%) [INPUT],40,persen
+,,
+=== HASIL PERHITUNGAN (otomatis) ===,,
+Keterangan,Nilai,Catatan
+Total biaya modal per pcs (sebelum jual),"=B6+B7+B9+B10","HPP + packaging + ongkir + iklan"
+Harga jual disarankan (sebelum fee marketplace),=ROUNDUP(B14*(1+B11/100)/100)*100,dibulatkan ke ratusan
+Biaya admin marketplace (Rp),=B15*B8/100,dari harga jual
+Uang bersih diterima dari marketplace,=B15-B16,harga jual - fee admin
+Untung bersih per pcs,=B17-B14,uang diterima - total modal
+Margin bersih aktual (%),=B18/B15*100,untung / harga jual
+,,
+=== HARGA MINIMAL BIAR TIDAK RUGI (BEP) ===,,
+Keterangan,Nilai,Catatan
+Harga jual IMPAS (untung = 0),=ROUNDUP(B14/(1-B8/100)/100)*100,"jual di bawah ini = RUGI"
+,,
+=== SIMULASI PER BATCH (opsional) ===,,
+Keterangan,Nilai,Catatan
+Jumlah produksi (set) [INPUT],110,
+Total modal produksi + operasional,=B25*B14,
+Total omzet jika semua terjual (harga disarankan),=B25*B15,
+Total untung bersih jika semua terjual,=B25*B18,
+,,
+CATATAN PENTING:,,
+"1. Biaya admin marketplace bervariasi (Free Ongkir + komisi kategori). Cek fee terkini di TikTok Shop/Shopee, biasanya 5-10%. Isi di sel B8.",,
+"2. Jika ikut program Gratis Ongkir dan sebagian ongkir ditanggung penjual, isi perkiraannya di B9.",,
+"3. Harga JANGAN di bawah 'Harga jual IMPAS' (BEP) — itu berarti rugi.",,
+"4. Diskon/flash sale mengurangi untung: hitung ulang dgn menurunkan harga jual manual dan lihat untung bersihnya.",,
+"5. Angka default: HPP 20rb, margin target 40% hanya contoh. Ganti sesuai kondisi Anda.",,

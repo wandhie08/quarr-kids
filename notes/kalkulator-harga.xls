@@ -1,0 +1,57 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel">
+<head>
+<meta charset="UTF-8">
+<!--[if gte mso 9]><xml>
+ <x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>
+ <x:Name>Kalkulator Harga</x:Name>
+ <x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions>
+ </x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook>
+</xml><![endif]-->
+<style>
+ td { border: 1px solid #ccc; padding: 6px 10px; font-family: Calibri, Arial, sans-serif; }
+ .hdr { background:#D8A7A0; color:#fff; font-weight:bold; }
+ .sec { background:#F5EFE6; font-weight:bold; }
+ .input { background:#FFF7D6; }
+ .result { background:#E8F0E3; font-weight:bold; }
+ .note { font-size:11px; color:#555; }
+</style>
+</head>
+<body>
+<table>
+ <tr><td class="hdr" colspan="3">KALKULATOR HARGA JUAL — QUARR KIDS</td></tr>
+ <tr><td class="note" colspan="3">Ubah sel kuning (INPUT). Sel hijau terhitung otomatis. Jangan jual di bawah "Harga Impas (BEP)".</td></tr>
+ <tr><td colspan="3"></td></tr>
+
+ <tr><td class="sec" colspan="3">INPUT (ubah di sini)</td></tr>
+ <tr><td>HPP dari konveksi (per set)</td><td class="input">20000</td><td class="note">Rupiah — harga beli dari konveksi</td></tr>
+ <tr><td>Packaging per pcs (plastik+hangtag+card)</td><td class="input">1500</td><td class="note">Rupiah</td></tr>
+ <tr><td>Biaya iklan per pcs</td><td class="input">2000</td><td class="note">Rupiah (0 jika belum iklan)</td></tr>
+ <tr><td>Ongkir ditanggung penjual per pcs</td><td class="input">0</td><td class="note">Rupiah (jika ikut gratis ongkir)</td></tr>
+ <tr><td>Fee admin marketplace (%)</td><td class="input">8</td><td class="note">TikTok/Shopee biasanya 5-10%</td></tr>
+ <tr><td>Target margin keuntungan (%)</td><td class="input">40</td><td class="note">mis. 30-50%</td></tr>
+ <tr><td colspan="3"></td></tr>
+
+ <tr><td class="sec" colspan="3">HASIL (otomatis)</td></tr>
+ <tr><td>Total modal per pcs</td><td class="result">=B5+B6+B7+B8</td><td class="note">HPP + packaging + iklan + ongkir</td></tr>
+ <tr><td>Harga jual DISARANKAN</td><td class="result">=ROUNDUP(B13*(1+B10/100)/100,0)*100</td><td class="note">sudah + margin target, dibulatkan ratusan</td></tr>
+ <tr><td>Fee admin marketplace (Rp)</td><td class="result">=B14*B9/100</td><td class="note">dari harga jual disarankan</td></tr>
+ <tr><td>Uang bersih diterima</td><td class="result">=B14-B15</td><td class="note">harga jual - fee admin</td></tr>
+ <tr><td>UNTUNG BERSIH per pcs</td><td class="result">=B16-B13</td><td class="note">uang diterima - total modal</td></tr>
+ <tr><td>Margin bersih aktual (%)</td><td class="result">=B17/B14*100</td><td class="note">untung / harga jual</td></tr>
+ <tr><td colspan="3"></td></tr>
+
+ <tr><td class="sec" colspan="3">BATAS AMAN</td></tr>
+ <tr><td>Harga jual IMPAS (BEP)</td><td class="result">=ROUNDUP(B13/(1-B9/100)/100,0)*100</td><td class="note">jual di BAWAH ini = RUGI</td></tr>
+ <tr><td colspan="3"></td></tr>
+
+ <tr><td class="sec" colspan="3">SIMULASI PER BATCH</td></tr>
+ <tr><td>Jumlah produksi (set)</td><td class="input">110</td><td class="note">INPUT</td></tr>
+ <tr><td>Total modal batch</td><td class="result">=B24*B13</td><td class="note">jumlah x modal per pcs</td></tr>
+ <tr><td>Total omzet jika habis (harga disarankan)</td><td class="result">=B24*B14</td><td class="note"></td></tr>
+ <tr><td>Total UNTUNG BERSIH jika habis</td><td class="result">=B24*B17</td><td class="note"></td></tr>
+ <tr><td colspan="3"></td></tr>
+
+ <tr><td class="note" colspan="3">Catatan: fee marketplace cek terkini di TikTok Shop/Shopee. Flash sale/diskon menurunkan untung — turunkan "Harga jual disarankan" manual untuk simulasi & cek untung bersihnya.</td></tr>
+</table>
+</body>
+</html>

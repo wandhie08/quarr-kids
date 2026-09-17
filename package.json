@@ -1,0 +1,32 @@
+{
+  "name": "kids-brand-ai",
+  "version": "0.1.0",
+  "description": "Platform AI agent untuk bisnis baju anak (brand sendiri): Sales/Stock Tracker & Production Advisor",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "dev": "tsx src/cli/index.ts",
+    "start": "node dist/cli/index.js",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "db:seed": "tsx src/db/seed.ts",
+    "demo": "tsx src/cli/index.ts demo"
+  },
+  "keywords": [
+    "kids-fashion",
+    "ai-agent",
+    "sales-tracker",
+    "production-advisor"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "16.4.5",
+    "pg": "8.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.10",
+    "@types/pg": "8.11.6",
+    "tsx": "4.16.2",
+    "typescript": "5.5.3"
+  }
+}
